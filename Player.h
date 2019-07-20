@@ -12,6 +12,9 @@ class Player {
 	//Variable for movements
 	bool playerMoveLeft{};
 	bool playerMoveRight{};
+	bool playerMoveUp{};
+	bool playerMoveDown{};
+
 
 	//For speed
 	float playerSpeed{};
@@ -46,8 +49,18 @@ public:
 	*/
 	void stopRight();
 
+	void moveUp();
+	void stopUp();
+	void moveDown();
+	void stopDown();
+
 	/**
 	*Update frame with movement
 	*/
-	void update(float elapsedTime);
+	void update(float elapsedTime,sf::Image image);
+
+	/**
+	*This Function Handle Jump
+	*/
+
 };

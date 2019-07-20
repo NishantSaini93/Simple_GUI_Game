@@ -17,7 +17,7 @@ Engine::Engine()
 	gameBackgroundSprite.setTexture(gameBackgroundTexture);
 
 }
-
+#include<iostream>
 void Engine::start()
 {
 	// Timing
@@ -27,12 +27,13 @@ void Engine::start()
 	{
 		// Restart the clock and save the elapsed time into dt
 		sf::Time dt = clock.restart();
-
 		// Make a fraction from the delta time
 		float dtAsSeconds = dt.asSeconds();
-
+		
+		if (!image.loadFromFile("C:\\Users\\Nishu\\Desktop\\back.jpg"))
+			std::cout << "Unable";
 		input();
-		update(dtAsSeconds);
+		update(dtAsSeconds,image);
 		draw();
 	}
 }
@@ -65,11 +66,29 @@ void Engine::input()
 		player.stopRight();
 	}
 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+	{
+		player.moveUp();
+	}
+	else
+	{
+		player.stopUp();
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	{
+		player.moveDown();
+	}
+	else
+	{
+		player.stopDown();
+	}
+	
+
 }
 
-void Engine::update(float dtAsSeconds)
+void Engine::update(float dtAsSeconds,sf::Image image)
 {
-	player.update(dtAsSeconds);
+	player.update(dtAsSeconds,image);
 }
 
 void Engine::draw()

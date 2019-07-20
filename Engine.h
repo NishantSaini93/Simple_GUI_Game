@@ -9,12 +9,12 @@ class Engine {
 	sf::Sprite gameBackgroundSprite;
 	//Textture for background
 	sf::Texture gameBackgroundTexture;
-
+	sf::Image image;
 	// Instance of Player class
 	Player player;
 
 	void input();
-	void update(float dtAsSeconds);
+	void update(float dtAsSeconds,sf::Image image);
 	void draw();
 
 public:
